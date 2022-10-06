@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/pulumi/pulumi/master/pkg/codegen/schema/pulumi.json
+---
+name: testpkg
+types:
+  testpkg:index:Access:
+    type: string
+    enum:
+      - value: public
+      - value: private
+resources:
+  testpkg:index:StaticPage:
+    isComponent: true
+    inputProperties:
+      indexContent:
+        type: string
+        description: The HTML content for index.html.
+      myEnum:
+        plain: true
+        default: public
+        type: string
+        $ref: "#/types/testpkg:index:Access"
+    requiredInputs:
+      - indexContent
+    properties:
+      bucket:
+        "$ref": "/aws/v4.0.0/schema.json#/resources/aws:s3%2Fbucket:Bucket"
+        description: The bucket resource.
+      websiteUrl:
+        type: string
+        description: The website URL.
+    required:
+      - bucket
+      - websiteUrl
+language:
+  csharp:
+    packageReferences:
+      Pulumi: 3.*
+      Pulumi.Aws: 4.*
+  go:
+    generateResourceContainerTypes: true
+    liftSingleValueMethodReturns: true
+    importBasePath: github.com/pulumi/pulumi-testpkg/sdk/go/testpkg
+    generateExtraInputTypes: true
+  nodejs:
+    dependencies:
+      "@pulumi/aws": "^4.0.0"
+    devDependencies:
+      typescript: "^3.7.0"
+  python:
+    requires:
+      pulumi: ">=3.0.0,<4.0.0"
+      pulumi-aws: ">=4.0.0,<5.0.0"
