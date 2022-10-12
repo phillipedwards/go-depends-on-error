@@ -109,7 +109,6 @@ class StaticPage(pulumi.ComponentResource):
                 my_enum = 'public'
             __props__.__dict__["my_enum"] = my_enum
             __props__.__dict__["bucket"] = None
-            __props__.__dict__["website_url"] = None
         super(StaticPage, __self__).__init__(
             'testpkg:index:StaticPage',
             resource_name,
@@ -124,12 +123,4 @@ class StaticPage(pulumi.ComponentResource):
         The bucket resource.
         """
         return pulumi.get(self, "bucket")
-
-    @property
-    @pulumi.getter(name="websiteUrl")
-    def website_url(self) -> pulumi.Output[str]:
-        """
-        The website URL.
-        """
-        return pulumi.get(self, "website_url")
 

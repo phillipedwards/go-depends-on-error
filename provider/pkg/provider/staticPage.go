@@ -15,22 +15,30 @@
 package provider
 
 import (
+	"fmt"
 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Access string
+
+const (
+	AccessPublic  = Access("public")
+	AccessPrivate = Access("private")
 )
 
 // The set of arguments for creating a StaticPage component resource.
 type StaticPageArgs struct {
 	// The HTML content for index.html.
 	IndexContent pulumi.StringInput `pulumi:"indexContent"`
+	MyEnum       *Access
 }
 
 // The StaticPage component resource.
 type StaticPage struct {
 	pulumi.ResourceState
 
-	Bucket     *s3.Bucket          `pulumi:"bucket"`
-	WebsiteUrl pulumi.StringOutput `pulumi:"websiteUrl"`
+	Bucket *s3.Bucket `pulumi:"bucket"`
 }
 
 // NewStaticPage creates a new StaticPage component resource.
@@ -44,6 +52,10 @@ func NewStaticPage(ctx *pulumi.Context,
 	err := ctx.RegisterComponentResource("testpkg:index:StaticPage", name, component, opts...)
 	if err != nil {
 		return nil, err
+	}
+
+	if args.MyEnum != nil {
+		fmt.Println(args.MyEnum)
 	}
 
 	// Create a bucket and expose a website index document.
@@ -89,7 +101,6 @@ func NewStaticPage(ctx *pulumi.Context,
 	}
 
 	component.Bucket = bucket
-	component.WebsiteUrl = bucket.WebsiteEndpoint
 
 	if err := ctx.RegisterResourceOutputs(component, pulumi.Map{
 		"bucket":     bucket,

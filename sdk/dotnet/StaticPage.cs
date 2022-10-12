@@ -18,12 +18,6 @@ namespace Pulumi.Testpkg
         [Output("bucket")]
         public Output<Pulumi.Aws.S3.Bucket> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// The website URL.
-        /// </summary>
-        [Output("websiteUrl")]
-        public Output<string> WebsiteUrl { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a StaticPage resource with the given unique name, arguments, and options.

@@ -17,8 +17,6 @@ type StaticPage struct {
 
 	// The bucket resource.
 	Bucket s3.BucketOutput `pulumi:"bucket"`
-	// The website URL.
-	WebsiteUrl pulumi.StringOutput `pulumi:"websiteUrl"`
 }
 
 // NewStaticPage registers a new resource with the given unique name, arguments, and options.

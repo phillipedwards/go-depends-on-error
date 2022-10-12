@@ -18,6 +18,7 @@ func main() {
 		_, err = testpkg.NewStaticPage(ctx, "test", &testpkg.StaticPageArgs{
 			IndexContent: pulumi.String("<body>hi</body>"),
 		}, pulumi.DependsOn([]pulumi.Resource{rand}))
+
 		return nil
 	})
 }

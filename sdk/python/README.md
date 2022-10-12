@@ -1,4 +1,4 @@
-# Pulumi Component Provider Boilerplate (Go)
+# Attempt to reproduce a MLC error in reference to the presence of `pulumi.DependsOn` on a MLC. Github issue: https://github.com/pulumi/pulumi/issues/10951
 
 This repo is a boilerplate showing how to create a Pulumi component provider written in Go. You can search-replace `xyz` with the name of your desired provider as a starting point for creating a component provider for your component resources.
 

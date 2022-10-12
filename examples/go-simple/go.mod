@@ -2,9 +2,7 @@ module github.com/pulumi/go-component-simple
 
 go 1.18
 
-require github.com/pulumi/pulumi-testpkg/sdk v0.0.2
-
-replace github.com/pulumi/pulumi-testpkg/sdk v0.0.2 => /Users/pedwards/repos/pulumi-component-provider-go-boilerplate/sdk
+replace github.com/pulumi/pulumi-testpkg/sdk v0.0.2 => ../../sdk
 
 require (
 	github.com/pulumi/pulumi-random/sdk/v4 v4.8.2
@@ -44,7 +42,8 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/pulumi/pulumi-aws/sdk/v4 v4.38.1 // indirect
+	github.com/pulumi/pulumi-aws/sdk/v4 v4.0.0 // indirect
+	github.com/pulumi/pulumi-testpkg/sdk v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.2 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -52,6 +51,7 @@ require (
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/spf13/cobra v1.5.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect

@@ -26,10 +26,6 @@ export class StaticPage extends pulumi.ComponentResource {
      * The bucket resource.
      */
     public /*out*/ readonly bucket!: pulumi.Output<pulumiAws.s3.Bucket>;
-    /**
-     * The website URL.
-     */
-    public /*out*/ readonly websiteUrl!: pulumi.Output<string>;
 
     /**
      * Create a StaticPage resource with the given unique name, arguments, and options.
@@ -48,10 +44,8 @@ export class StaticPage extends pulumi.ComponentResource {
             resourceInputs["indexContent"] = args ? args.indexContent : undefined;
             resourceInputs["myEnum"] = (args ? args.myEnum : undefined) ?? "public";
             resourceInputs["bucket"] = undefined /*out*/;
-            resourceInputs["websiteUrl"] = undefined /*out*/;
         } else {
             resourceInputs["bucket"] = undefined /*out*/;
-            resourceInputs["websiteUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StaticPage.__pulumiType, name, resourceInputs, opts, true /*remote*/);
