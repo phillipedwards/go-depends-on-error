@@ -15,8 +15,11 @@ func main() {
 			return nil
 		}
 
+		access := testpkg.AccessPublic
+
 		_, err = testpkg.NewStaticPage(ctx, "test", &testpkg.StaticPageArgs{
 			IndexContent: pulumi.String("<body>hi</body>"),
+			MyEnum:       &access,
 		}, pulumi.DependsOn([]pulumi.Resource{rand}))
 
 		return nil

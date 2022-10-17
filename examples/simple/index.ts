@@ -1,8 +1,8 @@
-import * as xyz from "@pulumi/xyz";
+import * as testpkg from "@pulumi/testpkg";
 
-const page = new xyz.StaticPage("page", {
+const page = new testpkg.StaticPage("page", {
     indexContent: "<html><body><p>Hello world!</p></body></html>",
+    myEnum: testpkg.Access.Public,
 });
 
 export const bucket = page.bucket;
-export const url = page.websiteUrl;
