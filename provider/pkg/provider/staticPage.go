@@ -16,6 +16,8 @@ package provider
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -31,7 +33,7 @@ const (
 type StaticPageArgs struct {
 	// The HTML content for index.html.
 	IndexContent pulumi.StringInput `pulumi:"indexContent"`
-	MyEnum       *Access
+	MyEnum       *Access            `pulumi:"myEnum"`
 }
 
 // The StaticPage component resource.
@@ -54,9 +56,12 @@ func NewStaticPage(ctx *pulumi.Context,
 		return nil, err
 	}
 
+	fmt.Fprintf(os.Stderr, "JVP: A\n")
 	if args.MyEnum != nil {
-		fmt.Println(args.MyEnum)
+		fmt.Fprintf(os.Stderr, "JVP: B\n")
+		fmt.Fprintf(os.Stderr, "Enum: %v\n", args.MyEnum)
 	}
+	fmt.Fprintf(os.Stderr, "JVP: C\n")
 
 	// Create a bucket and expose a website index document.
 	bucket, err := s3.NewBucket(ctx, name, &s3.BucketArgs{

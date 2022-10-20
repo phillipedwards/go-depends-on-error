@@ -27,6 +27,7 @@ build_provider::
 	cd provider/cmd/${PROVIDER} && go build -o ${WORKING_DIR}/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" .
 
 install_provider:: build_provider
+	rm -f ${GOPATH}/bin/${PROVIDER}
 	cp ${WORKING_DIR}/bin/${PROVIDER} ${GOPATH}/bin
 
 

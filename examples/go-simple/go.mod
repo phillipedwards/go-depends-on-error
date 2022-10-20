@@ -4,8 +4,11 @@ go 1.18
 
 replace github.com/pulumi/pulumi-testpkg/sdk v0.0.2 => ../../sdk
 
+replace github.com/pulumi/pulumi/sdk/v3 => ../../../../pulumi/pulumi/sdk
+
 require (
 	github.com/pulumi/pulumi-random/sdk/v4 v4.8.2
+	github.com/pulumi/pulumi-testpkg/sdk v0.0.2
 	github.com/pulumi/pulumi/sdk/v3 v3.40.3
 )
 
@@ -43,7 +46,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/pulumi-aws/sdk/v4 v4.0.0 // indirect
-	github.com/pulumi/pulumi-testpkg/sdk v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.2 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -70,6 +72,7 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gopkg.in/yaml.v3 v3.0.0 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20211028080628-e2786a622600 // indirect
 )
